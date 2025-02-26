@@ -28,6 +28,7 @@ if 'Extracurricular_Activities' in data.columns:
 # Output the cleaned data to a new CSV file
 output_file = 'cleaned.csv'
 data.to_csv(output_file, index=False)
+print("The code has been cleaned")
 
 
 
@@ -69,22 +70,42 @@ fig = px.pie(
 fig.show()
 
 
+"""
+#List data needed for scatter plot
+data = {
+    "Study Hours": [6.2, 19, 20.7, 24.8, 15.4, 21.3, 27.3, 8, 9.6, 13.2, 21.3, 18.1, 22.8, 5.8, 25.3, 29.7, 6.2, 17.4, 25.3, 16.9, 19.8, 28, 18.5, 10.9, 23.5, 14.4, 12.1, 11.2],
+    "Final Score": [57.82, 45.8, 93.68, 80.63, 78.89, 89.07, 73.96, 90.87, 98.47, 97.43, 91.37, 40.66, 93.14, 44.5, 91.07, 56.81, 76.6, 42.28, 86.27, 46.7, 64.64, 89.05, 81.62, 40.36, 64.18, 42.52, 80.41, 98.14],
+    "Attendance": [52.29, 97.27, 5, 95.25, 54.28, 57.60, 51.91, 85.97, 64.01, 85.72, 77.75, 55.44, 96.61, 72.01, 69.51, 83.63, 84.53, 52.30, 66.94, 70.59, 54.84, 19.8, 28, 18.5, 10.9, 23.5, 14.4, 12.1]
+}
+df = pd.DataFrame(data)
+
+fig = px.scatter(
+    df, x="Study Hours", y="Final Score",
+    size="Attendance", color="Final Score",
+    title="The effects of hours spent Studying on the Final score "
+    labels={"Study Hours": "Hours studied per Week","Final Score": "Final Exam Score"},
+    hover_data=["Attendance"]
+    )
+fig.show()
+"""
+import plotly.express as px
+import pandas as pd
+
+# Corrected data dictionary with proper formatting
+data = {
+    "Study Hours": [6.2, 19, 20.7, 24.8, 15.4, 21.3, 27.3, 8, 9.6, 13.2, 21.3, 18.1, 22.8, 5.8, 25.3, 29.7, 6.2, 17.4, 25.3, 16.9, 19.8, 28, 18.5, 10.9, 23.5, 14.4, 12.1, 11.2],
+    "Final Score": [57.82, 45.8, 93.68, 80.63, 78.89, 89.07, 73.96, 90.87, 98.47, 97.43, 91.37, 40.66, 93.14, 44.5, 91.07, 56.81, 76.6, 42.28, 86.27, 46.7, 64.64, 89.05, 81.62, 40.36, 64.18, 42.52, 80.41, 98.14],
+    "Attendance": [52.29, 97.27, 5, 95.25, 54.28, 57.60, 51.91, 85.97, 64.01, 85.72, 77.75, 55.44, 96.61, 72.01, 69.51, 83.63, 84.53, 52.30, 66.94, 70.59, 54.84, 19.8, 28, 18.5, 10.9, 23.5, 14.4, 12.1]
+}
 
 df = pd.DataFrame(data)
 
-# Create bubble scatter plot
 fig = px.scatter(
-    df, x="Study Hours", y="Final Score", 
+    df, x="Study Hours", y="Final Score",
     size="Attendance", color="Final Score",
-    title="Study Hours vs. Final Score",
+    title="The Effects of Hours Spent Studying on the Final Score",
     labels={"Study Hours": "Hours Studied per Week", "Final Score": "Final Exam Score"},
     hover_data=["Attendance"]
 )
 
 fig.show()
-
-#List data needed for scatter plot
-data = {
-    "Study Hours": [6.2,19,20.7,24.8,15.4,21.3,27,3,8,9.6,13.2,21.3,18.1,22.8,5.8,25.3,29.7,6.2,17.4,25.3,16.9,19.8,28,18.5,10.9,23.5,14.4,12.1,11.2]
-    "Final Score" : [57.82,45.8,93.68,80.63,78.89,89.07,73.96,90.87,98.47,8
-

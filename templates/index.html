@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Study Data Visualization</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            margin: 20px;
+        }
+        .container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+            width: 90%;
+            max-width: 1200px;
+        }
+        .graph-container {
+            width: 45vw; /* Ensures square shape */
+            height: 45vw; /* Match height with width */
+            max-width: 500px;
+            max-height: 500px;
+            overflow: hidden;
+        }
+        iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Study Data Visualization</h1>
+    <div class="container">
+        <div class="graph-container">
+            {{ graph_html | safe }}
+        </div>
+        <div class="graph-container">
+            {{ graph_html_pie | safe }}
+        </div>
+    </div>
+
+</body>
+</html>

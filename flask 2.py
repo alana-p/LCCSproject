@@ -47,15 +47,18 @@ graph_html_scatter = pio.to_html(fig_scatter, full_html=False)
 
 @app.route("/")
 def home():
-    return render_template("index.html", graph_html=graph_html_scatter, graph_html_pie=graph_html_pie)
+    return render_template("index.html")
 
+@app.route("/Graphs")
+def graphs():
+    return render_template("graphs.html", graph_html=graph_html_scatter, graph_html_pie=graph_html_pie)
+
+@app.route("/References")
+def references():
+    return render_template("index.html")
+    
 if __name__ == "__main__":
     app.run(debug=False)
     
 
-@app.route("/charts")
-def charts() :
-    return render_template("charts.html")
-    
-    
-    
+

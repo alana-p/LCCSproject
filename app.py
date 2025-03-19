@@ -53,10 +53,6 @@ def home():
 def graphs():
     return render_template("graphs.html", graph_html=graph_html_scatter, graph_html_pie=graph_html_pie)
 
-@app.route("/Survey")
-def survey() :
-    return render_template("survey.html")
-
 
 if __name__ == "__main__":
     app.run(debug=False)
